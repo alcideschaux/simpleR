@@ -142,9 +142,9 @@ plot.numerical.group <- function(x, y, ...){
 
 #' Plots for Survival Curves
 #'
-#' This function plots survival curves using the Kaplan-Meier method and compares them using the log-rank (Mantel-Cox) test
+#' This function plots survival curves using the Kaplan-Meier method and compares them using the log-rank (Mantel-Cox) test.
 #' @param x The grouping (predictor) variable.
-#' @param fu Time to event time interval.
+#' @param fu Time to event interval. Should be a numeric variable.
 #' @param outcome The outcome variable.
 #' @param title Plot main title.
 #' @param Position of the legend showing the levels of the predictor levels. Default is "topright".
@@ -173,16 +173,34 @@ survival.plot <- function(x, fu, outcome, title, position = "topright", logrank 
         par(mar = c(5, 4, 4, 2) + 0.1)
 }
 
-#' Forest plots of a logistic.table
+#' P value for Survival Curves
+#'
+#' This function estimates the P value from comparing survival curves using the log-rank (Mantel-Cox) test.
+#' @param x The grouping (predictor) variable.
+#' @param fu Time to event interval. Should be a numeric variable.
+#' @param outcome The outcome variable.
+#' @keywords factor, numerical, survival
+#' @export
+#' @examples survival.plot()
+
+survival.p <- function(x, fu, outcome){
+        require(survival)
+        outcome <- as.numeric(outcome)
+        survival.obj <- Surv(fu, outcome)
+        survival.lr <- survdiff(survival.obj ~ x)
+        survival.p <- pchisq(survival.lr$chisq, df = 1, lower = FALSE)
+        format(survival.p, digits = 2, width = 6)
+}
+
+#' Forest plots for Logistic Regression Estimates
 #'
 #' This function creates forest plots using OR and 95% CI from a logistic regression.
-#' @param outcome The  outcome variable. Should be a binary factor.
+#' @param outcome The outcome variable. Should be a binary factor.
 #' @param predictors A list of independent variables. They can include variable labels.
 #' @param varlabels The variable labels. Should be a vector of labels.
 #' @keywords forest, logistic
 #' @export
 #' @examples logistic.plot()
-#'
 
 logistic.plot <- function(outcome, predictors, varlabels){
         require(ggplot2)

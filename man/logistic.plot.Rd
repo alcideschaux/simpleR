@@ -2,12 +2,12 @@
 % Please edit documentation in R/simplePlots.R
 \name{logistic.plot}
 \alias{logistic.plot}
-\title{Forest plots of a logistic.table}
+\title{Forest plots for Logistic Regression Estimates}
 \usage{
 logistic.plot(outcome, predictors, varlabels)
 }
 \arguments{
-\item{outcome}{The  outcome variable. Should be a binary factor.}
+\item{outcome}{The outcome variable. Should be a binary factor.}
 
 \item{predictors}{A list of independent variables. They can include variable labels.}
 

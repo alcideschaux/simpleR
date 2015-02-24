@@ -10,7 +10,7 @@ survival.plot(x, fu, outcome, title, position = "topright",
 \arguments{
 \item{x}{The grouping (predictor) variable.}
 
-\item{fu}{Time to event time interval.}
+\item{fu}{Time to event interval. Should be a numeric variable.}
 
 \item{outcome}{The outcome variable.}
 
@@ -23,7 +23,7 @@ survival.plot(x, fu, outcome, title, position = "topright",
 \item{Position}{of the legend showing the levels of the predictor levels. Default is "topright".}
 }
 \description{
-This function plots survival curves using the Kaplan-Meier method and compares them using the log-rank (Mantel-Cox) test
+This function plots survival curves using the Kaplan-Meier method and compares them using the log-rank (Mantel-Cox) test.
 }
 \examples{
 survival.plot()
