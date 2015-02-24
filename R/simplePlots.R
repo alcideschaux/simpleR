@@ -139,3 +139,36 @@ plot.numerical.group <- function(x, y, ...){
         legend("topleft", bty = "n",
                 paste("Kruskal-Wallis test P value =", format(KW$p.value, digits = 2, width = 6)))
 }
+
+#' Plots for Survival Curves
+#'
+#' This function plots survival curves using the Kaplan-Meier method and compares them using the log-rank (Mantel-Cox) test
+#' @param x The grouping (predictor) variable.
+#' @param fu Time to event time interval.
+#' @param outcome The outcome variable.
+#' @param title Plot main title.
+#' @param Position of the legend showing the levels of the predictor levels.
+#' @param logrank Position of the legend showing the P value from the log-rank test.
+#' @param ... Other graphical parameters.
+#' @keywords factor, numerical, survival
+#' @export
+#' @examples survival.plot()
+
+survival.plot <- function(x, fu, outcome, title, position = "topright", logrank = "bottomleft", ...){
+        require(survival)
+        par(mar = c(5, 6, 4, 2) + 0.1)
+        outcome <- as.numeric(outcome)
+        survival.obj <- Surv(fu, outcome)
+        survival.lr <- survdiff(survival.obj ~ x)
+        survival.p <- pchisq(survival.lr$chisq, df = 1, lower = FALSE)
+        survival.x <- survfit(survival.obj ~ x)
+        plot(survival.x, cex = 2, main = title, cex.main = 1.75,
+             xlab = "", ylab = "", cex.lab = 1.5,
+             col =c(1,2,4,3), mark = c(2,0,5,1), lty = c(2,1,3,6), ...)
+        legend(x = position, legend = levels(x), pch = c(2,0,5,1), lty = c(2,1,3,6),
+               col = c(1,2,4,3), bty = "n", cex = 1.25)
+        legend(x = logrank, bty = "n",
+               paste("P value (log-rank test) =", format(survival.p, digits = 2, width = 6)),
+               cex = 1.25)
+        par(mar = c(5, 4, 4, 2) + 0.1)
+}
