@@ -13,15 +13,14 @@ nice.colors <- function(n) {
 
 #' Plots for Single Numerical Variable
 #'
-#' This function describes numerical variables using histograms and boxplots.
+#' This function describes single numerical variables using histograms and boxplots.
 #' @param x A numerical variable.
 #' @param label A label for the axes.
 #' @keywords numerical
 #' @export
 #' @examples plot.numerical()
 
-plot.numerical <- function(x, label){
-        require(simpleR::nice.colors)
+numerical.plot <- function(x, label){
         Q1.x <- round(quantile(x, 0.25, na.rm = TRUE), 1)
         Q2.x <- round(median(x, na.rm = TRUE), 1)
         Q3.x <- round(quantile(x, 0.75, na.rm = TRUE), 1)
@@ -41,7 +40,7 @@ plot.numerical <- function(x, label){
 
 #' Plots for Single Categorical Variable
 #'
-#' This function describes categorical variables using (horizontal or vertical) barplots.
+#' This function describes single categorical variables using (horizontal or vertical) barplots.
 #' @param x A factor variable.
 #' @param align Barplot alignment, either "v" (default) for vertical plots or "h" for horizontal plots.
 #' @param Left margin for horizontal plots. Default to 4.
@@ -50,8 +49,7 @@ plot.numerical <- function(x, label){
 #' @export
 #' @examples plot.categorical()
 
-plot.categorical <- function(x, align = "v", left = 4, ...){
-        require(simpleR::nice.colors)
+categorical.plot <- function(x, align = "v", left = 4, ...){
         x.table <- table(x)
         max.value <- x.table[which.max(x.table)] + 0.33*x.table[which.max(x.table)]
         range <- c(0, max.value)
@@ -75,7 +73,7 @@ plot.categorical <- function(x, align = "v", left = 4, ...){
 
 }
 
-#' Plots for 2 or More Categorical Variables
+#' Plots for 2 Categorical Variables
 #'
 #' This function describes categorical variables from a n-by-n contingency table using juxtaposed bars and applies the Fisher's exact test.
 #' @param x The first factor variable.
@@ -87,8 +85,7 @@ plot.categorical <- function(x, align = "v", left = 4, ...){
 #' @export
 #' @examples plot.categorical.group()
 
-plot.categorical.group <- function(x, y, align = "v", left = 4, ...){
-        require(simpleR::nice.colors)
+categorical.group.plot <- function(x, y, align = "v", left = 4, ...){
         par(mar = c(5, 4, 1, 2) + 0.1)
         xy.table <- table(x, y)
         max.value <- xy.table[which.max(xy.table)] + 0.33*xy.table[which.max(xy.table)]
@@ -129,8 +126,7 @@ plot.categorical.group <- function(x, y, align = "v", left = 4, ...){
 #' @export
 #' @examples plot.numerical.group()
 
-plot.numerical.group <- function(x, y, ...){
-        require(simpleR::nice.colors)
+numerical.group.plot <- function(x, y, ...){
         par(mar = c(5, 4, 1, 2))
         KW <- kruskal.test(x ~ y)
         max.value <- x[which.max(x)] + 0.1*x[which.max(x)]
