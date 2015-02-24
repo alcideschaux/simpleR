@@ -147,8 +147,8 @@ plot.numerical.group <- function(x, y, ...){
 #' @param fu Time to event time interval.
 #' @param outcome The outcome variable.
 #' @param title Plot main title.
-#' @param Position of the legend showing the levels of the predictor levels.
-#' @param logrank Position of the legend showing the P value from the log-rank test.
+#' @param Position of the legend showing the levels of the predictor levels. Default is "topright".
+#' @param logrank Position of the legend showing the P value from the log-rank test. Default is "bottomleft".
 #' @param ... Other graphical parameters.
 #' @keywords factor, numerical, survival
 #' @export

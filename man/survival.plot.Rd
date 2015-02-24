@@ -16,11 +16,11 @@ survival.plot(x, fu, outcome, title, position = "topright",
 
 \item{title}{Plot main title.}
 
-\item{logrank}{Position of the legend showing the P value from the log-rank test.}
+\item{logrank}{Position of the legend showing the P value from the log-rank test. Default is "bottomleft".}
 
 \item{...}{Other graphical parameters.}
 
-\item{Position}{of the legend showing the levels of the predictor levels.}
+\item{Position}{of the legend showing the levels of the predictor levels. Default is "topright".}
 }
 \description{
 This function plots survival curves using the Kaplan-Meier method and compares them using the log-rank (Mantel-Cox) test
