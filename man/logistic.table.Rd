@@ -14,7 +14,7 @@ logistic.table(outcome, predictors, varlabels)
 \item{varlabels}{The variable labels. Should be a vector of labels.}
 }
 \description{
-This function creates a logistic regression table including OR, 95% CI, and P values (unadjusted and adjusted using Hommel's correction).
+This function creates a logistic regression table including OR, 95\% CI, and P values (unadjusted and adjusted using Hommel's correction).
 }
 \examples{
 logistic.table()

@@ -16,7 +16,7 @@ cox.table(outcome, fu, predictors, varlabels)
 \item{varlabels}{The variable labels. Should be a vector of labels.}
 }
 \description{
-This function creates a Cox's proportional hazards regression table including OR, 95% CI, and P values (unadjusted and adjusted using Hommel's correction).
+This function creates a Cox's proportional hazards regression table including OR, 95\% CI, and P values (unadjusted and adjusted using Hommel's correction).
 }
 \examples{
 cox.table()

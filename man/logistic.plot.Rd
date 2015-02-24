@@ -14,7 +14,7 @@ logistic.plot(outcome, predictors, varlabels)
 \item{varlabels}{The variable labels. Should be a vector of labels.}
 }
 \description{
-This function creates forest plots using OR and 95% CI from a logistic regression.
+This function creates forest plots using OR and 95\% CI from a logistic regression.
 }
 \examples{
 logistic.plot()
