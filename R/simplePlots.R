@@ -21,6 +21,7 @@ nice.colors <- function(n) {
 #' @examples plot.numerical()
 
 plot.numerical <- function(x, label){
+        require(nice.colors)
         Q1.x <- round(quantile(x, 0.25, na.rm = TRUE), 1)
         Q2.x <- round(median(x, na.rm = TRUE), 1)
         Q3.x <- round(quantile(x, 0.75, na.rm = TRUE), 1)
@@ -35,6 +36,7 @@ plot.numerical <- function(x, label){
         if (Q2.x > 0){text(x = 1.35, y = Q2.x, labels = paste("Q2 =", Q2.x))}
         if (Q3.x > 0){text(x = 0.65, y = Q3.x, labels = paste("Q3 =", Q3.x))}
         text(x = 1.35, y = min.x, labels = paste("Min =", min.x))
+        par(mar = c(5, 4, 4, 2) + 0.1)
 }
 
 #' Plots for Single Categorical Variable
@@ -49,6 +51,7 @@ plot.numerical <- function(x, label){
 #' @examples plot.categorical()
 
 plot.categorical <- function(x, align = "v", left = 4, ...){
+        require(nice.colors)
         x.table <- table(x)
         max.value <- x.table[which.max(x.table)] + 0.33*x.table[which.max(x.table)]
         range <- c(0, max.value)
@@ -85,6 +88,7 @@ plot.categorical <- function(x, align = "v", left = 4, ...){
 #' @examples plot.categorical.group()
 
 plot.categorical.group <- function(x, y, align = "v", left = 4, ...){
+        require(nice.colors)
         par(mar = c(5, 4, 1, 2) + 0.1)
         xy.table <- table(x, y)
         max.value <- xy.table[which.max(xy.table)] + 0.33*xy.table[which.max(xy.table)]
@@ -126,6 +130,7 @@ plot.categorical.group <- function(x, y, align = "v", left = 4, ...){
 #' @examples plot.numerical.group()
 
 plot.numerical.group <- function(x, y, ...){
+        require(nice.colors)
         par(mar = c(5, 4, 1, 2))
         KW <- kruskal.test(x ~ y)
         max.value <- x[which.max(x)] + 0.1*x[which.max(x)]
@@ -138,6 +143,7 @@ plot.numerical.group <- function(x, y, ...){
                 ...)
         legend("topleft", bty = "n",
                 paste("Kruskal-Wallis test P value =", format(KW$p.value, digits = 2, width = 6)))
+        par(mar = c(5, 4, 4, 2) + 0.1)
 }
 
 #' Plots for Survival Curves
@@ -194,7 +200,7 @@ survival.p <- function(x, fu, outcome){
 
 #' Forest plots for Logistic Regression Estimates
 #'
-#' This function creates forest plots using OR and 95% CI from a logistic regression.
+#' This function creates forest plots using OR and 95\% CI from a logistic regression.
 #' @param outcome The outcome variable. Should be a binary factor.
 #' @param predictors A list of independent variables. They can include variable labels.
 #' @param varlabels The variable labels. Should be a vector of labels.

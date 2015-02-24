@@ -85,7 +85,7 @@ descriptive.categorical.group <- function(x, y){
 
 #' Logistic Regression Table
 #'
-#' This function creates a logistic regression table including OR, 95% CI, and P values (unadjusted and adjusted using Hommel's correction).
+#' This function creates a logistic regression table including OR, 95\% CI, and P values (unadjusted and adjusted using Hommel's correction).
 #' @param outcome The outcome variable. Should be a binary factor.
 #' @param predictors A list of independent variables. They can include variable labels.
 #' @param varlabels The variable labels. Should be a vector of labels.
@@ -125,7 +125,7 @@ logistic.table <- function(outcome, predictors, varlabels){
 
 #' Cox's Regression Table
 #'
-#' This function creates a Cox's proportional hazards regression table including OR, 95% CI, and P values (unadjusted and adjusted using Hommel's correction).
+#' This function creates a Cox's proportional hazards regression table including OR, 95\% CI, and P values (unadjusted and adjusted using Hommel's correction).
 #' @param outcome The outcome variable. Should be a binary factor.
 #' @param fu Time to event interval. Should be a numerical variable.
 #' @param predictors A list of independent variables. They can include variable labels.
