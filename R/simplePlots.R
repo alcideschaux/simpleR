@@ -21,7 +21,7 @@ nice.colors <- function(n) {
 #' @examples plot.numerical()
 
 plot.numerical <- function(x, label){
-        require(nice.colors)
+        require(simpleR::nice.colors)
         Q1.x <- round(quantile(x, 0.25, na.rm = TRUE), 1)
         Q2.x <- round(median(x, na.rm = TRUE), 1)
         Q3.x <- round(quantile(x, 0.75, na.rm = TRUE), 1)
@@ -51,7 +51,7 @@ plot.numerical <- function(x, label){
 #' @examples plot.categorical()
 
 plot.categorical <- function(x, align = "v", left = 4, ...){
-        require(nice.colors)
+        require(simpleR::nice.colors)
         x.table <- table(x)
         max.value <- x.table[which.max(x.table)] + 0.33*x.table[which.max(x.table)]
         range <- c(0, max.value)
@@ -88,7 +88,7 @@ plot.categorical <- function(x, align = "v", left = 4, ...){
 #' @examples plot.categorical.group()
 
 plot.categorical.group <- function(x, y, align = "v", left = 4, ...){
-        require(nice.colors)
+        require(simpleR::nice.colors)
         par(mar = c(5, 4, 1, 2) + 0.1)
         xy.table <- table(x, y)
         max.value <- xy.table[which.max(xy.table)] + 0.33*xy.table[which.max(xy.table)]
@@ -130,7 +130,7 @@ plot.categorical.group <- function(x, y, align = "v", left = 4, ...){
 #' @examples plot.numerical.group()
 
 plot.numerical.group <- function(x, y, ...){
-        require(nice.colors)
+        require(simpleR::nice.colors)
         par(mar = c(5, 4, 1, 2))
         KW <- kruskal.test(x ~ y)
         max.value <- x[which.max(x)] + 0.1*x[which.max(x)]
