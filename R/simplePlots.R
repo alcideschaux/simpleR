@@ -152,10 +152,10 @@ survival.plot <- function(x, fu, outcome, title, position = "topright", logrank 
   .pardefault <- par(no.readonly = TRUE)
   par(mar = c(5, 6, 4, 2) + 0.1)
   outcome <- as.numeric(outcome)
-  survival.obj <- Surv(fu, outcome)
-  survival.lr <- survdiff(survival.obj ~ x)
+  survival.obj <- survival::Surv(fu, outcome)
+  survival.lr <- survival::survdiff(survival.obj ~ x)
   survival.p <- pchisq(survival.lr$chisq, df = 1, lower = FALSE)
-  survival.x <- survfit(survival.obj ~ x)
+  survival.x <- survival::survfit(survival.obj ~ x)
   .col <- c(1,2,4,3)
   .mark <- c(2,0,5,1)
   .lty <- c(2,1,3,6)
@@ -180,8 +180,8 @@ survival.plot <- function(x, fu, outcome, title, position = "topright", logrank 
 
 survival.p <- function(x, fu, outcome) {
   outcome <- as.numeric(outcome)
-  survival.obj <- Surv(fu, outcome)
-  survival.lr <- survdiff(survival.obj ~ x)
+  survival.obj <- survival::Surv(fu, outcome)
+  survival.lr <- survival::survdiff(survival.obj ~ x)
   survival.p <- pchisq(survival.lr$chisq, df = 1, lower = FALSE)
   format(survival.p, digits = 2, width = 6)
 }
@@ -211,7 +211,7 @@ logistic.plot <- function(outcome, predictors, varlabels){
   OR.low <- unlist(OR.low)
   OR.high <- unlist(OR.high)
   OR.table <- cbind(OR.center, OR.low, OR.high)
-  ggplot(data = data.frame(OR.table),
+  ggplot2::ggplot(data = data.frame(OR.table),
     aes(x = varlabels, y = OR.center, ymin = OR.low, ymax = OR.high)) +
     geom_errorbar(width = 0.25, size = 0.75) +
     geom_hline(y = 1, linetype = "longdash") +
