@@ -21,12 +21,12 @@ nice.colors <- function(n) {
 #' @examples plot.numerical()
 
 numerical.plot <- function(x, label){
+        par(cex.lab = 1.5)
         Q1.x <- round(quantile(x, 0.25, na.rm = TRUE), 1)
         Q2.x <- round(median(x, na.rm = TRUE), 1)
         Q3.x <- round(quantile(x, 0.75, na.rm = TRUE), 1)
         max.x <- round(max(x, na.rm = TRUE), 1)
         min.x <- round(min(x, na.rm = TRUE), 1)
-        par(mfrow = c(2,1), cex.lab = 1.5)
         hist(x, ylab = "Frequency", xlab = label, main = "",
              col = nice.colors(2)[1])
         boxplot(x, col = nice.colors(2)[2], ylab = label)
