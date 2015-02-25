@@ -164,14 +164,12 @@ survival.plot <- function(x, fu, outcome, title, position = "topright", logrank 
         survival.lr <- survdiff(survival.obj ~ x)
         survival.p <- pchisq(survival.lr$chisq, df = 1, lower = FALSE)
         survival.x <- survfit(survival.obj ~ x)
-        plot(survival.x, main = title,
-             xlab = "", ylab = "", cex.lab = 1.25,
-             col =c(1,2,4,3), mark = c(2,0,5,1), lty = c(2,1,3,6), ...)
-        legend(x = position, legend = levels(x), pch = c(2,0,5,1), lty = c(2,1,3,6),
-               col = c(1,2,4,3), bty = "n", cex = 1.25)
-        legend(x = logrank, bty = "n",
-               paste("P value (log-rank test) =", format(survival.p, digits = 2, width = 6)),
-               cex = 1.25)
+        .col <- c(1,2,4,3)
+        .mark <- c(2,0,5,1)
+        .lty <- c(2,1,3,6)
+        plot(survival.x, main = title, cex.lab = 1.25, col = .col, mark = .mark, lty = .lty, ...)
+        legend(x = position, legend = levels(x), pch = .mark, lty = .lty, col = c(1,2,4,3), bty = "n")
+        legend(x = logrank, bty = "n", paste("P value (log-rank test) =", format(survival.p, digits = 2, width = 6)))
         par(mar = c(5, 4, 4, 2) + 0.1)
 }
 
