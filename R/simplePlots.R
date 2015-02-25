@@ -55,9 +55,9 @@ categorical.plot <- function(x, align = "v", left = 4, ...){
         range <- c(0, max.value)
         nl <- nlevels(x)
         if (align == "v") {
-                par(mar = c(2,2,2,0))
+                par(mar = c(2,4,2,0))
                 Plot <- barplot(x.table, col = nice.colors(nl),
-                                ylab = "No. Patients", cex.lab = 1.25, ylim = range,
+                                ylab = "No. Cases", cex.lab = 1.25, ylim = range,
                                 ...)
                 text(Plot, paste("N =", x.table), y = x.table, pos = 3)
         }
@@ -65,7 +65,7 @@ categorical.plot <- function(x, align = "v", left = 4, ...){
                 par(mar = c(5, left, 4, 2) + 0.1, las = 1)
                 Plot <- barplot(x.table, col = nice.colors(nl),
                                 horiz = TRUE,
-                                xlab = "No. Patients", cex.lab = 1.25, xlim = range,
+                                xlab = "No. Cases", cex.lab = 1.25, xlim = range,
                                 ...)
                 text(Plot, paste("N =", x.table), x = x.table, pos = 4)
                 par(mar = c(5, 4, 4, 2) + 0.1)
