@@ -1,10 +1,11 @@
 Package: simpleR
 Title: Simplified functions for presenting data using tables and plots
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person("Alcides", "Chaux", , "achaux@gmail.com", role = c("aut", "cre"))
 Description: This package contains a set of functions to describe numerical and categorical data using tables and plots through simplified functions.
 Depends: R (>= 3.1.2)
 License: CCO
 LazyData: true
 Imports: knitr,
-    survival
+    survival,
+    ggplot2
