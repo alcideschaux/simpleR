@@ -1,11 +1,24 @@
 Package: simpleR
 Title: Simplified functions for presenting data using tables and plots
-Version: 0.0.2
+Version: 0.0.0.9000
 Authors@R: person("Alcides", "Chaux", , "achaux@gmail.com", role = c("aut", "cre"))
-Description: This package contains a set of functions to describe numerical and categorical data using tables and plots through simplified functions.
+Description: This package contains a set of functions to describe
+    numerical and categorical data using tables and plots through
+    simplified functions. Plots used include histograms and boxplots
+    for numerical variables, and bar plots for categorical (factor)
+    variables. Tables present data as counts and percentages. Inferential
+    statistics are also provided, including P values estimated using
+    Kruskal-Wallis test for grouped numerical variables and Fisher's 
+    exact test for contingency tables. The package also contains
+    functions to plot survival curves using the Kaplan-Meier method and
+    to compare them using the log-rank (Mantel-Cox) test. A set of
+    functions allow to render logistic regression tables including odds
+    ratios (OR), 95% confidence intervals (95CI) and P values, and to 
+    depict OR and 95CI using forest plots.
 Depends: R (>= 3.1.2)
 License: CCO
 LazyData: true
-Imports: knitr,
-    survival,
-    ggplot2
+Imports:
+    knitr (>=1.9),
+    survival (>=2.38.1),
+    ggplot2 (>=1.0.0)
