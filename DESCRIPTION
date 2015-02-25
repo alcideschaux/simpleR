@@ -19,6 +19,6 @@ Depends: R (>= 3.1.2)
 License: CCO
 LazyData: true
 Imports:
-    knitr (>=1.9),
-    survival (>=2.38.1),
-    ggplot2 (>=1.0.0)
+    knitr (>= 1.9),
+    survival (>= 2.38.1),
+    ggplot2 (>= 1.0.0)
