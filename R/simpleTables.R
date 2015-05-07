@@ -112,7 +112,7 @@ logistic.table <- function(outcome, predictors, varlabels){
 
 #' Cox's Regression Table
 #'
-#' This function creates a Cox's proportional hazards regression table including OR, 95\% CI, and P values (unadjusted and adjusted using Hommel's correction).
+#' This function creates a Cox's proportional hazards regression table including OR, 95\% CI, and P values.
 #' @param outcome The outcome variable. Should be a binary factor.
 #' @param fu Time to event interval. Should be a numerical variable.
 #' @param predictors A list of independent variables. They can include variable labels.
@@ -132,8 +132,8 @@ cox.table <- function(outcome, fu, predictors, varlabels){
   for(i in 1:length(predictors)) {
     model[[i]] <- survival::coxph(survival.obj ~ predictors[[i]])
     HR.center[[i]] <-format(summary(model[[i]])$conf.int[1], digits = 2, nsmall = 2)
-    HR.low[[i]] <- format(summary(model[[i]])$conf.int[2], digits = 2, nsmall = 2)
-    HR.high[[i]] <- format(summary(model[[i]])$conf.int[3], digits = 2, nsmall = 2)
+    HR.low[[i]] <- format(summary(model[[i]])$conf.int[3], digits = 2, nsmall = 2)
+    HR.high[[i]] <- format(summary(model[[i]])$conf.int[4], digits = 2, nsmall = 2)
     HR.p[[i]] <- format(summary(model[[i]])$logtest[3], digits = 2, width  = 6)
   }
   HR.center <- unlist(HR.center)
